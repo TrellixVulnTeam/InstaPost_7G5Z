@@ -11,19 +11,19 @@ class BlogPostListView(ListAPIView):
   queryset = BlogPost.objects.order_by('-date_created')
   serializer_class = BlogPostSerializer
   lookup_field = 'slug'
-  permission_classes = (permission.Allowany,)
+  permission_classes = (permissions.AllowAny,)
 
-class BlogPostDetailView(RetrievAPIView):
+class BlogPostDetailView(RetrieveAPIView):
   queryset = BlogPost.objects.order_by('-date_created')
   serializer_class = BlogPostSerializer
   lookup_field = 'slug'
-  permission_classes = (permission.Allowany,)
+  permission_classes = (permissions.AllowAny,)
 
 class BlogPostCategoryView(APIView):
   serializer_class = BlogPostSerializer
-  permission_classes = (permission.Allowany,)
+  permission_classes = (permissions.AllowAny,)
 
-  def post(self, request format=none):
+  def post(self, request, format=None):
     data = self.request.data 
     category = data['category']
     queryset = BlogPost.objects.order_by('-date_created').filter(category__iexact=category)
