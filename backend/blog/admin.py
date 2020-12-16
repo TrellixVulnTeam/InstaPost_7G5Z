@@ -7,11 +7,11 @@ from .models import BlogPost
 class BlogPostAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
     exclude = ('slug',)
     summernote_fields = ('content',)
-    # list_display_links=('id','title',) #if needed turn this into a class. Refer stack overflow
-    search_fields=('title',)
+    list_display =('id', 'title', 'category', 'date_created')
+    list_display_links=('id','title',) #if needed turn this into a class. Refer stack overflow
+    search_fields = ('title',)
     list_per_page = 25
     summernote_fields = ('content',)
-
 
 
 admin.site.register(BlogPost, BlogPostAdmin)
