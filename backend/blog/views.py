@@ -7,10 +7,6 @@ from blog.models import BlogPost, Author
 from blog.serializers import BlogPostSerializer, AuthorSerializer
 
 
-# def author_list(request):
-#     authors = Author.objects.all()
-#     return render(request, 'blog/author_list.html', {'authors': authors})
-
 class AuthorListView(ListCreateAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
