@@ -21,8 +21,14 @@ class Categories(models.TextChoices):
     REVIEWS = 'reviews'
     CONTACTUS = 'contactus'
 
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 class BlogPost(models.Model):
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="blogposts")
     title = models.CharField(max_length=50, default="New Post")
     slug = models.SlugField()
     category = models.CharField(

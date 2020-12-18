@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django_summernote',
+    'django_extensions',
     'blog'
 ]
 
@@ -127,7 +128,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.AllowAny'
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
